@@ -1,0 +1,14 @@
+Create project structure
+    -
+Create Java CI with Maven
+    - workflows/maven.yml
+Implement basic deposit functionality
+    -
+Handle failure cases during deposit
+    -
+Implement basic withdraw functionality
+    -
+Handle failure cases during withdraw
+    -
+Create atm client
+    -
