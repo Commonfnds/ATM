@@ -21,5 +21,7 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
+        source: '8'
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
