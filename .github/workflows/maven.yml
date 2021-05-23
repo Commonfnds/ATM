@@ -4,7 +4,7 @@ name: Java CI with Maven for ATM
 # Controls when the action will run. Triggers the workflow on push or pull request events but only for master branch 
 on:
   push:
-    branches: [ Master ]
+    branches: [ master ]
 
 # A workflow is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
