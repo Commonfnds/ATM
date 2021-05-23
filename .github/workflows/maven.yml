@@ -44,7 +44,7 @@ jobs:
         cd target
         ls -a
   
-    - name: Step 7 - persist workflow data as artifacts
+    - name: Step 7 - Persist workflow data as artifacts
       uses: actions/upload-artifact@v2
       with:
         name: github-actions-artifact 
