@@ -27,12 +27,18 @@ jobs:
     - name: Step 3 - build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Step 4 - list the current directory
+    - name: Step 4 - setup a cache for Maven
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+      
+    - name: Step 5 - list the current directory
       run: ls -a
 
-    - name: Step 5 - what is in the target directory
-      run: cd target
-
-    - name: Step 6 - list the current directory
-      run: ls -a
+    - name: Step 6 - what is in the target directory
+      run: 
+           cd target
+           ls -a
       
