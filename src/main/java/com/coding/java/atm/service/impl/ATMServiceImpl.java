@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import com.coding.java.atm.currency.Denomination;
 import com.coding.java.atm.currency.Note;
+import com.coding.java.atm.messages.MessageConstants;
 import com.coding.java.atm.service.ATMService;
 
 /**
@@ -39,6 +40,14 @@ public class ATMServiceImpl implements ATMService {
 
 	@Override
 	public String deposit(List<Note> depositedNotes) {
+		if (depositedNotes.stream().anyMatch(n -> n.getQuantity() < 0)) {
+			return MessageConstants.INCORRENT_DEPOSIT_MSG;
+		}
+
+		if (depositedNotes.stream().allMatch(n -> n.getQuantity() == 0)) {
+			return MessageConstants.DEPOSIT_ZERO_MSG;
+		}
+		
 		depositedNotes.stream().forEach(n -> {
 
 			Denomination denomination = n.getDenomination();
