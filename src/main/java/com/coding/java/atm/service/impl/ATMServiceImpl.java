@@ -22,7 +22,7 @@ import com.coding.java.atm.service.ATMService;
  */
 public class ATMServiceImpl implements ATMService {
 
-	private Map<Denomination, Integer> notes = new TreeMap<Denomination, Integer>();
+	private final Map<Denomination, Integer> notes = new TreeMap<Denomination, Integer>();
 
 	@Override
 	public void initializeMachine() {
@@ -86,15 +86,16 @@ public class ATMServiceImpl implements ATMService {
 			return MessageConstants.NOT_DISPENSABLE_MSG;
 		}
 
+		int amount = withdrawAmount;
 		for (Denomination denomination : sortedDenomination) {
 			Integer availableDenomination = notes.get(denomination);
-			Integer requiredDenomination = withdrawAmount / denomination.value();
+			Integer requiredDenomination = amount / denomination.value();
 
 			if (availableDenomination < requiredDenomination) {
 				requiredDenomination = availableDenomination;
 			}
 
-			withdrawAmount -= requiredDenomination * denomination.value();
+			amount -= requiredDenomination * denomination.value();
 			notes.put(denomination, notes.get(denomination) - requiredDenomination);
 		}
 
@@ -108,17 +109,18 @@ public class ATMServiceImpl implements ATMService {
 
 	private boolean canNotesBeDispensed(List<Denomination> sortedDenomination, int withdrawAmount,
 			Map<Denomination, Integer> dispensedDenominations) {
+		int amount = withdrawAmount;
 		for (Denomination denomination : sortedDenomination) {
 			Integer availableDenomination = notes.get(denomination);
-			Integer requiredDenomination = withdrawAmount / denomination.value();
+			Integer requiredDenomination = amount / denomination.value();
 
 			if (availableDenomination < requiredDenomination) {
 				requiredDenomination = availableDenomination;
 			}
 
-			withdrawAmount -= requiredDenomination * denomination.value();
+			amount -= requiredDenomination * denomination.value();
 			dispensedDenominations.put(denomination, requiredDenomination);
 		}
-		return withdrawAmount > 0;
+		return amount > 0;
 	}
 }
