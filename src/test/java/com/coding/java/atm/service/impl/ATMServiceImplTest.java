@@ -14,7 +14,7 @@ import com.coding.java.atm.currency.Note;
 import com.coding.java.atm.messages.MessageConstants;
 import com.coding.java.atm.service.ATMService;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+//@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class ATMServiceImplTest {
 	
 	private ATMService atmService;
