@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.coding.java.atm.currency.Denomination;
 import com.coding.java.atm.currency.Note;
+import com.coding.java.atm.messages.MessageConstants;
 import com.coding.java.atm.service.ATMService;
 
 public class ATMServiceImplTest {
@@ -37,5 +38,19 @@ public class ATMServiceImplTest {
 		List<Note> depositedNotes_2 = Arrays.asList(new Note(Denomination.TWENTY, 3), new Note(Denomination.FIVE, 18), new Note(Denomination.ONE, 4));
 		atmService.deposit(depositedNotes_2);
 		assertEquals("\nBalance: 20s=3, 10s=8, 5s=38, 1s=4, Total=334", atmService.displayDenominationBalance());
+	}
+	
+	@Test
+	public void testDeposit_3() {
+		List<Note> depositedNotes = Arrays.asList(new Note(Denomination.TEN, 0), new Note(Denomination.FIVE, 0));
+		
+		assertEquals(MessageConstants.DEPOSIT_ZERO_MSG, atmService.deposit(depositedNotes));
+	}
+	
+	@Test
+	public void testDeposit_4() {
+		List<Note> depositedNotes = Arrays.asList(new Note(Denomination.TEN, 10), new Note(Denomination.FIVE, -5));
+		
+		assertEquals(MessageConstants.INCORRENT_DEPOSIT_MSG, atmService.deposit(depositedNotes));
 	}
 }
