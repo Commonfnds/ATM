@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Maven
 name: Java CI with Maven for ATM
 
-# Controls when the action will run. Triggers the workflow on push or pull request events but only for master branch 
+# Controls when the action will run. Triggers the workflow on push or pull request events but only for master branch
 on:
   push:
     branches: [Master]
