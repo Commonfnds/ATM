@@ -24,7 +24,7 @@ jobs:
         java-version: '8'
         distribution: 'adopt'
     - name: Step 3 - set up Junit 5
-      run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-maven && ./build.sh
+      run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-maven
 
     - name: Step 4 - build with Maven
       run: |
