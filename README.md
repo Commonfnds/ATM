@@ -26,12 +26,10 @@ Balance: 20s=3, 10s=8, 5s=38, 1s=4, Total=334
 Withdraw 1: 75
 ---------------------
 Dispensed: 20s=3, 10s=1, 5s=1
-Balance: 20s=0, 10s=7, 5s=37, 1s=4, Total=259
 
 Withdraw 2: 122
 ----------------------
 Dispensed: 10s=7, 5s=10, 1s=2
-Balance: 20s=0, 10s=0, 5s=27, 1s=2, Total=137
 
 Withdraw 3: 63
 ----------------------
@@ -52,18 +50,7 @@ Withdraw 5: -25
 Output: "Incorrect or insufficient funds"
 
 
-Tips: This program should be expandable to support 50s and 100s in future. Please allow the program to support any currency denominations with little or no code change.
+Tips: 
 
-public class ATM {
-   public void deposit(...) {
-   }
-
-   public void withdraw(...) {
-   }
-}
-
-
-Ensure the following
-* Use single class. Include a main method to so that program is runnable.
-* Use the java.util.Scanner to receive and process inputs.
-* Send the completed exercise as .java file. Cover all the boundary conditions. Exercise will also be evaluated for the coding style.
+This program should be expandable to support 50s and 100s in future. 
+Please allow the program to support any currency denominations with little or no code change.
