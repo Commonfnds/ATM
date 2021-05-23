@@ -25,7 +25,9 @@ jobs:
         distribution: 'adopt'
 
     - name: Step 3 - build with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        mvn -B package --file pom.xml
+        mkdir staging && cp target/*.jar staging
       
     - name: Step 4 - setup a cache for Maven
       uses: actions/cache@v2
@@ -41,4 +43,10 @@ jobs:
       run: |
         cd target
         ls -a
+  
+    - name: Step 7 - persist workflow data as artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: github-actions-artifact 
+        path: staging
       
