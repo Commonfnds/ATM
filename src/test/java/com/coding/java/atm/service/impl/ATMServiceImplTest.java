@@ -13,16 +13,17 @@ import com.coding.java.atm.currency.Denomination;
 import com.coding.java.atm.currency.Note;
 import com.coding.java.atm.messages.MessageConstants;
 import com.coding.java.atm.service.ATMService;
+import com.coding.java.atm.service.impl.ATMServiceImpl;
 
 //@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class ATMServiceImplTest {
 	
-	private ATMService atmService;
+	private ATMService atmService= new ATMServiceImpl();
 	
-	@BeforeEach
-	void init() {
-		atmService = new ATMServiceImpl();
-	}
+//	@BeforeEach
+//	void init() {
+//		atmService = new ATMServiceImpl();
+//	}
 	
 	@Test
 	public void testInitializeMachine() {
