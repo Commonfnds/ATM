@@ -1,26 +1,37 @@
 # This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+name: Java CI with Maven for ATM
 
-name: Java CI with Maven
-
+# Controls when the action will run. Triggers the workflow on push or pull request events but only for master branch 
 on:
   push:
-    branches: [ Master, story, sub-task ]
-  pull_request:
-    branches: [ Master, story, sub-task ]
+    branches: [ Master ]
 
+# A workflow is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
   build:
 
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of taks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 8
+    - name: Step 1 - checkout main branch from github
+      uses: actions/checkout@v2
+      
+    - name: Step 2 - set up JDK 8
       uses: actions/setup-java@v2
       with:
         java-version: '8'
         distribution: 'adopt'
 
-    - name: Build with Maven
+    - name: Step 3 - build with Maven
       run: mvn -B package --file pom.xml
+      
+    - name: Step 4 - list the current directory
+      run: ls -a
+
+    - name: Step 5 - what is in the target directory
+      run: 
+        cd target
+        ls -a
+      
