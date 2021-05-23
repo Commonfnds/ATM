@@ -4,7 +4,7 @@ name: Java CI with Maven for ATM
 # Controls when the action will run. Triggers the workflow on push or pull request events but only for master branch 
 on:
   push:
-    branches: [ Master ]
+    branches: [Master]
 
 # A workflow is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
@@ -29,13 +29,13 @@ jobs:
       uses: codeinspectorio/github-action@v1
       with:
         # Token to checkout the repository.
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        repo_token: ${{secrets.GITHUB_TOKEN}}
 
         # Access key on Code Inspector
-        code_inspector_access_key: ${{ secrets.CODE_INSPECTOR_ACCESS_KEY }}
+        code_inspector_access_key: ${{secrets.CODE_INSPECTOR_ACCESS_KEY}}
 
         # Secret key on Code Inspector
-        code_inspector_secret_key: ${{ secrets.CODE_INSPECTOR_SECRET_KEY }}
+        code_inspector_secret_key: ${{secrets.CODE_INSPECTOR_SECRET_KEY}}
 
         # Minimum grade. Valid options are EXCELLENT, GOOD, NEUTRAL, WARNING, CRITICAL. Leave blank to ignore.
         min_quality_grade: 'GOOD'
@@ -67,8 +67,8 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/.m2
-        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-        restore-keys: ${{ runner.os }}-m2
+        key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
+        restore-keys: ${{runner.os}}-m2
       
     - name: Step 6 - list the current directory
       run: ls -a
