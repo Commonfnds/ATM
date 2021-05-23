@@ -23,28 +23,30 @@ jobs:
       with:
         java-version: '8'
         distribution: 'adopt'
+    - name: Step 3 - set up Junit 5
+      run: junit5-jupiter-starter-maven
 
-    - name: Step 3 - build with Maven
+    - name: Step 4 - build with Maven
       run: |
         mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
       
-    - name: Step 4 - setup a cache for Maven
+    - name: Step 5 - setup a cache for Maven
       uses: actions/cache@v2
       with:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
       
-    - name: Step 5 - list the current directory
+    - name: Step 6 - list the current directory
       run: ls -a
 
-    - name: Step 6 - what is in the target directory
+    - name: Step 7 - what is in the target directory
       run: |
         cd target
         ls -a
   
-    - name: Step 7 - Persist workflow data as artifacts
+    - name: Step 8 - Persist workflow data as artifacts
       uses: actions/upload-artifact@v2
       with:
         name: github-actions-artifact 
