@@ -32,6 +32,6 @@ jobs:
 
     - name: Step 5 - what is in the target directory
       run: 
-        cd target
-        ls -a
+         cd target
+         ls -a
       
