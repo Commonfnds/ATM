@@ -38,4 +38,15 @@ public interface ATMService {
 	 */
 	String deposit(List<Note> depositedNotes);
 
+	/**
+	 * This function allows withdrawing amount with different {@link Denomination}s
+	 * from ATM.
+	 * 
+	 * @param amount to be withdrawn from ATM.
+	 * 
+	 *               If the input amount is zero, negative, or more than the current
+	 *               balance, then "Incorrect or insufficient funds" message will be
+	 *               displayed.
+	 */
+	String withdraw(int withdrawAmount);
 }
