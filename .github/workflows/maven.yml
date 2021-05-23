@@ -38,7 +38,7 @@ jobs:
       run: ls -a
 
     - name: Step 6 - what is in the target directory
-      run: 
-           cd target
-           ls -a
+      run: |
+        cd target
+        ls -a
       
